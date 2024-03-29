@@ -46,6 +46,7 @@ public:
                 cout << arr[i][j] << " ";
             cout << "\n";
         }
+        cout << "\n";
     }
 
     int** getTarr() {
@@ -64,10 +65,10 @@ private:
 
 int main()
 {
-    Matrix second(3, 3);
-    second.creatMat();
-    second.cinf(second.getTarr());
-    second.coutf(second.getTarr());
+    Matrix one(3, 3);
+    one.creatMat();
+    one.cinf(one.getTarr());
+    one.coutf(one.getTarr());
 
     Matrix second(3, 3);
     second.creatMat();
