@@ -20,9 +20,16 @@ public:
         this->COLS = COLS;
         this->ROWS = ROWS;
         this->Sarr = Sarr;
+
+        int** arr = new int* [ROWS];
+        for (int i = 0; i < ROWS; i++)
+        {
+            arr[i] = new int[COLS];
+        }
+        this->arr = arr;
     };
 
-    void cinf(int** arr) {
+    void cinf() {
         for (int i = 0; i < ROWS; i++)
             for (int j = 0; j < COLS; j++)
             {
@@ -31,13 +38,13 @@ public:
             }
     }
 
-    void deletef(int** arr) {
+    void deletef() {
         for (int i = 0; i < ROWS; i++)
             delete[] arr[i];
         delete[] arr;
     }
 
-    void coutf(int** arr) {
+    void coutf() {
         for (int i = 0; i < ROWS; i++)
         {
             for (int j = 0; j < ROWS; j++)
@@ -65,8 +72,8 @@ int main()
 {
     Matrix one(3, 3);
 
-    one.cinf(one.getarr());
-    one.coutf(one.getarr());
+    one.cinf();
+    one.coutf();
 
     return 0;
 }
