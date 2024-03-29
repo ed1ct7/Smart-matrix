@@ -7,6 +7,13 @@ public:
     Matrix(int COLS, int ROWS) {
         this->COLS = COLS;
         this->ROWS = ROWS;
+        
+        int** arr = new int* [ROWS];
+        for (int i = 0; i < ROWS; i++)
+        {
+            arr[i] = new int[COLS];
+        }
+        this->arr = arr;
     };
 
     Matrix(int COLS, int ROWS, int**Sarr) {
@@ -14,15 +21,6 @@ public:
         this->ROWS = ROWS;
         this->Sarr = Sarr;
     };
-
-    void creatMat() {
-        int** arr = new int* [ROWS];
-        for (int i = 0; i < ROWS; i++)
-        {
-            arr[i] = new int[COLS];
-        }
-        this->Tarr = arr;
-    }
 
     void cinf(int** arr) {
         for (int i = 0; i < ROWS; i++)
@@ -49,8 +47,8 @@ public:
         cout << "\n";
     }
 
-    int** getTarr() {
-        return this->Tarr;
+    int** getarr() {
+        return this->arr;
     }
 
     int** getSarr() {
@@ -59,21 +57,16 @@ public:
 
 private:
     int ROWS, COLS;
-    int **Tarr = 0;
+    int **arr = 0;
     int **Sarr = 0;
 };
 
 int main()
 {
     Matrix one(3, 3);
-    one.creatMat();
-    one.cinf(one.getTarr());
-    one.coutf(one.getTarr());
 
-    Matrix second(3, 3);
-    second.creatMat();
-    second.cinf(second.getTarr());
-    second.coutf(second.getTarr());
+    one.cinf(one.getarr());
+    one.coutf(one.getarr());
 
     return 0;
 }
