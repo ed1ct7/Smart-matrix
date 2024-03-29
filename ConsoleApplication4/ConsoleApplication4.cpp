@@ -34,21 +34,21 @@ public:
             for (int j = 0; j < COLS; j++)
             {
                 cout << "Enter\n";
-                cin >> arr[i][j];
+                cin >> this->arr[i][j];
             }
     }
 
     void deletef() {
         for (int i = 0; i < ROWS; i++)
-            delete[] arr[i];
-        delete[] arr;
+            delete[] this->arr[i];
+        delete[] this->arr;
     }
 
     void coutf() {
         for (int i = 0; i < ROWS; i++)
         {
             for (int j = 0; j < ROWS; j++)
-                cout << arr[i][j] << " ";
+                cout << this->arr[i][j] << " ";
             cout << "\n";
         }
         cout << "\n";
