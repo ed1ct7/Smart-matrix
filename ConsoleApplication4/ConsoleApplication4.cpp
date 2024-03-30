@@ -62,6 +62,70 @@ public:
         return this->Sarr;
     }
 
+    void summation() {
+        for (size_t i = 0; i < ROWS; i++)
+        {
+            for (size_t j = 0; j < COLS; j++) {
+                arr[i][j] += Sarr[i][j];
+            }
+        }
+    }
+
+    void trans() {
+        int** Tarr = new int* [ROWS];
+
+        for (size_t i = 0; i < ROWS; i++)
+        {
+            Tarr[i] = new int[COLS];
+        }
+
+        cout << "TRANS" << endl;
+
+        for (size_t i = 0; i < ROWS; i++)
+        {
+            for (size_t j = 0; j < COLS; j++) {
+                Tarr[i][j] = arr[i][j];
+            }
+        }
+        for (size_t i = 0; i < ROWS; i++)
+        {
+            for (size_t j = 0; j < COLS; j++) {
+                arr[i][j] = Tarr[j][i];
+            }
+        }
+    }
+
+    void multiplication() {
+        
+        cout << "multiplication" << endl;
+
+        int** Tarr = new int* [ROWS];
+
+        for (size_t i = 0; i < ROWS; i++)
+        {
+            Tarr[i] = new int[COLS];
+        }
+
+        for (size_t i = 0; i < ROWS; i++)
+        {
+            for (size_t j = 0; j < COLS; j++) 
+            {
+                Tarr[i][j] = 0;
+                for (size_t k = 0; k < COLS; k++)
+                {
+                    Tarr[i][j] += this->arr[k][j] * this->Sarr[i][k];
+                }
+            }
+        }
+        
+        for (size_t i = 0; i < ROWS; i++)
+        {
+            for (size_t j = 0; j < COLS; j++) {
+                this->arr[i][j] = Tarr[i][j];
+            }
+        }
+    }
+
 private:
     int ROWS, COLS;
     int **arr = 0;
@@ -75,6 +139,14 @@ int main()
     one.cinf();
     one.coutf();
 
+    cout << endl;
+
+    Matrix two(3, 3, one.getarr());
+
+    two.cinf();
+    two.coutf();
+    two.multiplication();
+    two.coutf();
+
     return 0;
 }
-
