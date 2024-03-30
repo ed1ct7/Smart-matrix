@@ -4,6 +4,7 @@ using namespace std;
 
 class Matrix {
 public:
+
     Matrix(int COLS, int ROWS) {
         this->COLS = COLS;
         this->ROWS = ROWS;
@@ -87,12 +88,17 @@ public:
                 Tarr[i][j] = arr[i][j];
             }
         }
+
         for (size_t i = 0; i < ROWS; i++)
         {
             for (size_t j = 0; j < COLS; j++) {
                 arr[i][j] = Tarr[j][i];
             }
         }
+
+        for (int i = 0; i < ROWS; i++)
+            delete[] Tarr[i];
+        delete[] Tarr;
     }
 
     void multiplication() {
@@ -124,6 +130,10 @@ public:
                 this->arr[i][j] = Tarr[i][j];
             }
         }
+
+        for (int i = 0; i < ROWS; i++)
+            delete[] Tarr[i];
+        delete[] Tarr;
     }
 
 private:
@@ -147,6 +157,9 @@ int main()
     two.coutf();
     two.multiplication();
     two.coutf();
+    
+    two.deletef();
+    one.deletef();
 
     return 0;
 }
